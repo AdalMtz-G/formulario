@@ -1,0 +1,55 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>FORMULARIO
+        <ion-icon name="clipboard"></ion-icon>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content  padding>
+    <form [formGroup]="registrarForm" (ngSubmit)="registrar()">
+      <ion-grid>
+        <ion-row  justify-content-center>
+          <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
+            <div padding>
+              <ion-item>
+                <ion-input  formControlName="nombres" type="text" placeholder="Nombre" ngModel required></ion-input>
+                <div color="error"  *ngIf="f.nombres.errors">*</div>
+              </ion-item>
+              <ion-item>
+                <ion-input formControlName="telefono" type="text" placeholder="Telefono" ngModel required></ion-input>
+                <div color="error"  *ngIf="f.telefono.errors">*</div>
+              </ion-item>
+              <ion-item >
+                  <ion-label color="primary" stacked>¿Animales en casa?</ion-label>
+                  <ion-select formControlName="animales" placeholder="Selecciona uno">
+                    <ion-select-option value="1"> Sí</ion-select-option>
+                    <ion-select-option value="2"> No</ion-select-option>
+
+                  </ion-select>
+                </ion-item>
+                <ion-item >
+                    <ion-label color="primary" stacked>¿Cuenta con un patio en su hogar?</ion-label>
+                    <ion-select formControlName="patio" placeholder="Selecciona uno" ngModel required>
+                      <ion-select-option value="1"> Sí</ion-select-option>
+                      <ion-select-option value="2"> No</ion-select-option>
+                    </ion-select>
+                  </ion-item>
+                  <ion-item>
+                      <ion-input formControlName="comentarios" type="text" placeholder="Comentarios" ></ion-input>
+                    </ion-item>
+              <ion-row >
+                  <ion-col>
+                      <ion-button  shape="round" size="large" expand="full"type="submit" [disabled]="registrarForm.invalid" > ADOPTAR
+                        <ion-icon name="paw"></ion-icon>
+                      </ion-button>
+                      
+                  </ion-col>
+                </ion-row>
+            </div>
+
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </form>
+  </ion-content> 
